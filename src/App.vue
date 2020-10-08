@@ -1,43 +1,79 @@
 <template>
   <div id="app">
-    <dashboard />
-<!--    <pro-form-->
-<!--      :fields="fields"-->
-<!--      @submit="onsubmit"-->
-<!--    />-->
+    <el-container>
+      <el-header>
+        代码地址：<a href="https://github.com/SkyLin0909/pro-vue-admin">https://github.com/SkyLin0909/pro-vue-admin</a>
+      </el-header>
+      <el-container>
+        <el-aside style="width: 140px">
+          <el-menu
+            :default-active="componentName"
+            background-color="#545c64"
+            active-text-color="#ffd04b"
+          >
+            <el-menu-item
+              index="FormPage"
+              @click="() => onClickMenu('FormPage')"
+            >
+              pro-form
+            </el-menu-item>
+            <el-menu-item
+              index="SearchPage"
+              @click="() => onClickMenu('SearchPage')"
+            >
+              pro-search
+            </el-menu-item>
+            <el-menu-item>pro-table</el-menu-item>
+            <el-menu-item>pro-dialog-form</el-menu-item>
+            <el-menu-item>pro-search-table</el-menu-item>
+          </el-menu>
+        </el-aside>
+        <el-main>
+          <component
+            :is="componentName"
+          />
+        </el-main>
+      </el-container>
+    </el-container>
   </div>
 </template>
 
 <script>
-import Dashboard from './pages/dashbord'
+  import FormPage from './pages/form-page'
+  import SearchPage from './pages/search-demo'
 
-export default {
-  name: 'App',
-  components: { Dashboard },
-  data() {
-    return {
-      fields: [
-        { title: '用户名', key: 'username', isRequired: true, contentWidth: 160 },
-        { title: '年龄', key: 'age', type: 'inputNumber', isRequired: true },
-        { title: '性别', key: 'sex', type: 'radio', defaultValue: 1, options: [
-            { label: '男', value: 1 },
-            { label: '女', value: 2 },
-          ]
-        },
-        { title: '喜欢的颜色', key: 'color', isShow: ({ sex }) => sex === 2 }
-      ]
-    }
-  },
-  methods: {
-    onsubmit(form, valid) {
-      console.log(valid, form)
+  export default {
+    name: 'App',
+    components: { FormPage, SearchPage },
+    data() {
+      return {
+        componentName: 'FormPage'
+      }
+    },
+    methods: {
+      onClickMenu(name) {
+        this.componentName = name
+      }
     }
   }
-}
 </script>
 
 <style lang="scss">
-  #app {
-    padding: 50px;
+  .el-header, .el-footer {
+    background-color: #B3C0D1;
+    color: #333;
+    text-align: center;
+    line-height: 60px;
+  }
+
+  .el-aside {
+    background-color: #D3DCE6;
+    color: #333;
+    line-height: 200px;
+  }
+
+  .el-main {
+    background-color: #E9EEF3;
+    color: #333;
   }
 </style>

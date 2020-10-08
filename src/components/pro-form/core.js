@@ -40,11 +40,6 @@ export function computeFormItem(config, form) {
     const temp = typeof item.contentWidth === 'number' ? `${item.contentWidth}px` : item.contentWidth
     item.props.style = { width: temp }
   }
-
-  // 防止表单提交时存在多余 key
-  if (!item._isShow) {
-    delete form[item.key]
-  }
-
+  
   return item
 }

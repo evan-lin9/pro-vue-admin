@@ -1,41 +1,41 @@
 <template>
-  <div class="filter-wrapper">
-    <div class="filter-area">
-     <pro-form
-       ref="form"
-       :fields="searchFields"
-       v-bind="$attrs"
-       @submit="submit"
-       @reset="reset"
-       :inline="true"
-       :has-control="false"
-     />
-    </div>
-    <div class="filter-control">
-      <div class="filter-control-query">
-        <el-button
-          type="primary"
-          icon="el-icon-search"
-          @click="onSearch"
-        >
-          查询
-        </el-button>
-      </div>
-      <div class="filter-control-reset">
-        <el-button
-          type="primary"
-          icon="el-icon-refresh-right"
-          @click="onReset"
-        >
-          重置
-        </el-button>
-      </div>
-    </div>
-  </div>
+  <pro-form
+    ref="form"
+    class="pro-search"
+    v-bind="$attrs"
+    :fields="searchFields"
+    :toggle-fields="searchToggleFields"
+    :inline="true"
+    :has-control="false"
+    :toggleable="true"
+    :search-form-toggle="searchFormToggle"
+    @submit="submit"
+    @reset="reset"
+  >
+    <el-col slot="search" :span="6">
+      <el-button
+        type="primary"
+        icon="el-icon-search"
+        @click="onSearch"
+      >
+        查询
+      </el-button>
+      <el-button
+        type="primary"
+        icon="el-icon-refresh-right"
+        @click="onReset"
+      >
+        重置
+      </el-button>
+      <el-button v-if="searchToggleFields.length > 0" type="text" @click="toggle">
+        {{ searchFormToggle ? '收起' : '展开' }}<i :class="`el-icon-arrow-${searchFormToggle ? 'up' : 'down'} el-icon--right`" />
+      </el-button>
+    </el-col>
+  </pro-form>
 </template>
 
 <script>
-  import { getSearchFields } from './core'
+  import { getSearchFields, getSearchToggleFields } from './core'
   export default {
     name: 'ProSearch',
     props: {
@@ -44,9 +44,17 @@
         default: () => []
       },
     },
+    data() {
+      return {
+        searchFormToggle: false
+      }
+    },
     computed: {
       searchFields() {
         return getSearchFields(this.fields)
+      },
+      searchToggleFields() {
+        return getSearchToggleFields(this.fields)
       }
     },
     methods: {
@@ -69,34 +77,35 @@
       onReset() {
         this.$refs.form.reset()
         this.onSearch()
+      },
+
+      // 调整搜索表单收起/隐藏
+      toggle() {
+        // 修改状态
+        this.searchFormToggle = !this.searchFormToggle
       }
     }
   }
 </script>
 
-<style scoped lang="scss">
-.filter-wrapper {
-  display: flex;
-  width: 100%;
+<style lang="scss">
+.pro-search {
+  margin-bottom: 16px;
+  padding: 18px;
   background: #fff;
-  border: 1px solid #e5e5e5;
-  margin-bottom: 12px;
-  .filter-area {
-    background: #f8f8f8;
-    padding: 12px;
-    flex: 1 1;
-  }
-  .filter-control {
-    border-left: 1px solid #e5e5e5;
-    box-sizing: border-box;
-    flex: initial;
-    min-width: 260px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    &-query, &-reset {
-      margin: 10px 8px;
+  .el-row {
+    // 用来解决 el-datepicker 组件 type 类型为 datetimerange 时高度不一致的问题
+    .el-form-item__content {
+      // line-height: 1 !important;
     }
+    .el-col {
+      /*.el-form-item {*/
+      /*  margin-bottom: 0;*/
+      /*}*/
+    }
+    /*.el-col:nth-child(n+5) {*/
+    /*  margin-top: 12px;*/
+    /*}*/
   }
 }
 </style>
