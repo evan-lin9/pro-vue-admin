@@ -25,7 +25,12 @@
             </el-menu-item>
             <el-menu-item>pro-table</el-menu-item>
             <el-menu-item>pro-dialog-form</el-menu-item>
-            <el-menu-item>pro-search-table</el-menu-item>
+            <el-menu-item
+              index="SearchTablePage"
+              @click="() => onClickMenu('SearchTablePage')"
+            >
+              pro-search-table
+            </el-menu-item>
           </el-menu>
         </el-aside>
         <el-main>
@@ -39,12 +44,13 @@
 </template>
 
 <script>
-  import FormPage from './pages/form-page'
+  import FormPage from './pages/form-demo'
   import SearchPage from './pages/search-demo'
+  import SearchTablePage from './pages/search-table-demo'
 
   export default {
     name: 'App',
-    components: { FormPage, SearchPage },
+    components: { FormPage, SearchPage, SearchTablePage },
     data() {
       return {
         componentName: 'FormPage'

@@ -29,7 +29,7 @@
   import { getList, addUser, updateUser } from "./api";
 
   export default {
-    name: "Dashboard",
+    name: "SearchTablePage",
     data() {
       return {
         api: getList,

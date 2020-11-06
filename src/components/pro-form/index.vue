@@ -1,5 +1,6 @@
 <template>
   <el-form
+    class="pro-form"
     ref="form"
     :model="form"
     v-bind="$attrs"
@@ -133,3 +134,10 @@ export default {
   }
 }
 </script>
+
+<style scoped>
+  .pro-form {
+    padding: 12px;
+    background: white;
+  }
+</style>
