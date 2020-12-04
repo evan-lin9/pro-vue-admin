@@ -38,6 +38,9 @@ export default {
       valueFormat: 'timestamp'
     }
   },
+  selectInput: {
+    component: 'ba-select-input',
+  },
   // 自定义的组件
   radio: {
     component: 'ba-radio'

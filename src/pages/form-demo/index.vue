@@ -35,13 +35,28 @@
             props: {
               type: 'datetimerange'
             }
+          },
+          {
+            key: 'moreConditions',
+            title: '更多条件',
+            type: 'selectInput',
+            options: {
+              a: 1,
+              b: 2,
+              c: 3
+            }
           }
         ]
       }
     },
     methods: {
       onSubmit(form, valid) {
-        this.$message.info(`校验结果：${valid} 表单数据：` + JSON.stringify(form))
+        const { moreConditions, ...rest } = form
+        const temp = moreConditions
+          .reduce((obj, item) => ({ ...obj, [item.key]: item.value}), {})
+        this.$message.info(`校验结果：${valid} 表单数据：` + JSON.stringify({
+          ...rest, ...temp
+        }))
       }
     }
   }

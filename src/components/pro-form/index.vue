@@ -50,11 +50,12 @@
 <script>
 import BaSelect from '../base-components/ba-select'
 import BaRadio from '../base-components/ba-radio'
+import BaSelectInput from '../base-components/ba-select-input'
 import { computeFormItem } from './core'
 
 export default {
   name: 'ProForm',
-  components: { BaSelect, BaRadio },
+  components: { BaSelect, BaRadio, BaSelectInput },
   props: {
     toggleable: {
       type: Boolean,
