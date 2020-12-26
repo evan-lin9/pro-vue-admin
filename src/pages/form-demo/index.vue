@@ -52,6 +52,7 @@
     methods: {
       onSubmit(form, valid) {
         const { moreConditions, ...rest } = form
+        //recude报错->moreCoditions未成功获取值或者没判断为undefined的情况
         const temp = moreConditions
           .reduce((obj, item) => ({ ...obj, [item.key]: item.value}), {})
         this.$message.info(`校验结果：${valid} 表单数据：` + JSON.stringify({
