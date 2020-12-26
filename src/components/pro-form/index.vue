@@ -115,6 +115,7 @@ export default {
     },
     submit() {
       this.$refs.form.validate((valid) => {
+        //此处未获取到ba-select-input的选项值?
         this.$emit('submit', this.form, valid)
       })
     },
