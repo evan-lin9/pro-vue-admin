@@ -46,7 +46,7 @@
               <ba-confirm-button text="上线" onConfirm={() => this.onStatus(row.id, 'online')}/>
             </div>
           },
-          {title: 'ID', key: 'id', search: {}},
+          {title: 'ID', key: 'id'},
           {
             title: '名称', key: 'name',
             dialog: { isRequired: true, isShow: form => !form.id }

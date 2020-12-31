@@ -8,14 +8,21 @@
         @submit="onSubmit"
       />
     </el-card>
+    <el-button @click="visible = true">打开</el-button>
+    <test v-model="visible">
+      adasdsd
+    </test> 
   </div>
 </template>
 
 <script>
+import test from '@/components/pro-dialog'
   export default {
     name: "FormPage",
+    components: { test },
     data() {
       return {
+        visible: false,
         fields1: [
           {
             key: 'name',

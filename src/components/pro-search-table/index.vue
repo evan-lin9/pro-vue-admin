@@ -2,6 +2,7 @@
   <div class="ba-search-table">
     <pro-search
       ref="search"
+      :is-default-show="false"
       :auth="searchAuth"
       :fields="fields"
       @submit="onSearch"

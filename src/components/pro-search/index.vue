@@ -39,6 +39,10 @@
   export default {
     name: 'ProSearch',
     props: {
+      isDefaultShow: {
+        type: Boolean,
+        default: true
+      },
       fields: {
         type: Array,
         default: () => []
@@ -51,7 +55,7 @@
     },
     computed: {
       searchFields() {
-        return getSearchFields(this.fields)
+        return getSearchFields(this.fields, this.isDefaultShow)
       },
       searchToggleFields() {
         return getSearchToggleFields(this.fields)

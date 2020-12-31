@@ -1,5 +1,8 @@
-export function getSearchFields(list) {
-  const temp = list.filter(j => j.search).map(i => ({
+export function getSearchFields(list, isShow = true) {
+  if (!isShow) {
+    list = list.filter(j => j.search)
+  }
+  const temp = list.map(i => ({
     key: i.key,
     title: i.title,
     type: i.type,

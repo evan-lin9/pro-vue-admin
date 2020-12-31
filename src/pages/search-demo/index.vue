@@ -38,7 +38,6 @@
           {
             title: '用户名',
             key: 'username',
-            search: {}
           },
           {
             title: '年龄',
@@ -51,7 +50,7 @@
           {
             title: '用户名',
             key: 'username',
-            search: {},
+            
           },
           {
             title: '年龄',
@@ -83,7 +82,7 @@
           {
             title: '用户名',
             key: 'username',
-            search: {},
+            
           },
           {
             title: '性别',
@@ -115,7 +114,7 @@
           {
             title: '用户名',
             key: 'username',
-            search: {},
+            
           },
           {
             title: '年龄',
@@ -127,27 +126,27 @@
           {
             title: 'a',
             key: 'a',
-            search: {},
+            
           },
           {
             title: 'b',
             key: 'b',
-            search: {},
+            
           },
           {
             title: 'c',
             key: 'c',
-            search: {},
+            
           },
           {
             title: 'd',
             key: 'd',
-            search: {},
+            
           },
           {
             title: 'e',
             key: 'e',
-            search: {},
+            
           },
         ],
       }

@@ -4,8 +4,13 @@
     v-bind="$attrs"
     @click="click"
   >
-    <el-radio :label="options[0].value">{{ options[0].label }}</el-radio>
-    <el-radio :label="options[1].value">{{ options[1].label }}</el-radio>
+    <el-radio
+      v-for="opt in options"
+      :key="opt.value"
+      :value="opt.value"
+    >
+      {{ opt.label }}
+    </el-radio>
   </el-radio-group>
 </template>
 

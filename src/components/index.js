@@ -1,6 +1,7 @@
 import Vue from 'vue'
 import BaConfirmButton from './base-components/ba-confirm-button'
 import BaDeleteButton from './base-components/ba-delete-button'
+import ProDialog from './pro-dialog'
 import ProDialogForm from './pro-dialog-form'
 import ProForm from './pro-form'
 import ProSearch from './pro-search'
@@ -10,6 +11,7 @@ import ProTable from './pro-table'
 Vue.component(BaDeleteButton.name, BaDeleteButton)
 Vue.component(BaConfirmButton.name, BaConfirmButton)
 Vue.component(ProForm.name, ProForm)
+Vue.component(ProDialog.name, ProDialog)
 Vue.component(ProSearch.name, ProSearch)
 Vue.component(ProTable.name, ProTable)
 Vue.component(ProDialogForm.name, ProDialogForm)
@@ -19,6 +21,7 @@ export {
   BaConfirmButton,
   BaDeleteButton,
   ProDialogForm,
+  ProDialog,
   ProForm,
   ProSearch,
   ProSearchTable,
